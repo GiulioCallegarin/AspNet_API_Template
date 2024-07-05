@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNet_API_Template.Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNet_API_Template.Shared", "AspNet_API_Template.Shared\AspNet_API_Template.Shared.csproj", "{2AED2841-C354-4A38-8A03-67CC02B57CCC}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{CC71AEC1-7C61-4ED2-965D-386AA418D042}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2AED2841-C354-4A38-8A03-67CC02B57CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AED2841-C354-4A38-8A03-67CC02B57CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AED2841-C354-4A38-8A03-67CC02B57CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC71AEC1-7C61-4ED2-965D-386AA418D042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC71AEC1-7C61-4ED2-965D-386AA418D042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC71AEC1-7C61-4ED2-965D-386AA418D042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC71AEC1-7C61-4ED2-965D-386AA418D042}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
