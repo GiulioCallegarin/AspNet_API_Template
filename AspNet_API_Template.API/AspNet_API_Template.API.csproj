@@ -15,11 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\AspNet_API_Template.Application\AspNet_API_Template.Application.csproj" />
     <ProjectReference Include="..\AspNet_API_Template.Infrastructure\AspNet_API_Template.Infrastructure.csproj" />
+    <ProjectReference Include="..\AspNet_API_Template.Shared\AspNet_API_Template.Shared.csproj" />
   </ItemGroup>
 
 </Project>

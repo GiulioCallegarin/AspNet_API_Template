@@ -1,3 +1,4 @@
+using AspNet_API_Template.Application;
 using AspNet_API_Template.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,23 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Enable Cors
+builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+}));
+
+// Enable MediatR
+builder.Services.AddMediatR(options =>
+{
+    options.RegisterServicesFromAssemblies(
+        typeof(Program).Assembly,
+        typeof(Application).Assembly
+    );
+});
+
 // Authentication
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
@@ -21,7 +39,7 @@ builder.Services.AddIdentityCore<User>()
 
 // Db Context
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("database")));
+    options.UseLazyLoadingProxies().UseNpgsql(builder.Configuration.GetConnectionString("database")));
 
 var app = builder.Build();
 
@@ -32,12 +50,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("MyPolicy");
 app.MapIdentityApi<User>();
-
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

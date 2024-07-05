@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using AspNet_API_Template.Shared.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,21 @@ public class ApplicationDbContext: IdentityDbContext<User>
     { 
     }
 
+    public virtual DbSet<Example> Examples { get; set; }
+    public virtual DbSet<ExampleMessage> ExampleMessages { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
+        var exampleMessage = new ExampleMessage() { ExampleMessageId = Guid.NewGuid(), Message = "This is an example" };
+
+        builder.Entity<ExampleMessage>().HasData(
+            exampleMessage
+        );
+
+        builder.Entity<Example>().HasData(
+            new Example() { ExampleId = Guid.NewGuid(), ExampleMessageId = exampleMessage.ExampleMessageId }
+        );
     }
 }

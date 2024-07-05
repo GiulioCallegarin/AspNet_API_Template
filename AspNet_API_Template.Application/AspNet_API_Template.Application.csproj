@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspNet_API_Template.Infrastructure\AspNet_API_Template.Infrastructure.csproj" />
+    <ProjectReference Include="..\AspNet_API_Template.Shared\AspNet_API_Template.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
